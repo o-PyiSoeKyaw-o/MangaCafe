@@ -48,8 +48,8 @@ export default function MangaHomePage() {
         return () => window.removeEventListener('focus', handleWindowFocus);
     }, []);
 
-    const trendingManga = mangas.filter(manga => manga.is_trending).slice(0, 5);
-    const latestUpdates = mangas.filter(manga => !manga.is_trending).slice(0, 6);
+    const trendingManga = mangas.filter(manga => manga.is_premium).slice(0, 5);
+    const latestUpdates = mangas.filter(manga => !manga.is_premium).slice(0, 6);
 
     return (
         <div className="min-h-screen bg-[#fdfbf7] text-[#4a3e3d] font-sans selection:bg-[#c2b093] selection:text-white">
@@ -113,7 +113,7 @@ export default function MangaHomePage() {
                                 <div key={manga.id} className="group relative flex flex-col cursor-pointer">
                                     <div className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden bg-[#f3ede2] border border-[#ebdccb] shadow-sm group-hover:shadow-md group-hover:border-[#d4c1aa] transition-all duration-300">
                                         {/* ⚠️ Backend က ပို့ပေးမည့် Image URL နှင့် ဒေတာများကို ချိတ်ဆက်ခြင်း */}
-                                        <img src={manga.image_url || manga.image} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-102" />
+                                        <img src={`http://localhost:8000${manga.cover_image}`} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-102" />
                                         <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#b8860b] px-2 py-0.5 rounded-md flex items-center gap-1 border border-[#ebdccb]">
                                             ⭐ {manga.rating || "0.0"}
                                         </div>
@@ -153,7 +153,7 @@ export default function MangaHomePage() {
                                 {latestUpdates.map((manga) => (
                                     <div key={manga.id} className="flex gap-4 p-3 rounded-2xl bg-white hover:bg-[#fbf9f3] border border-[#ebdccb]/60 hover:border-[#d4c1aa] shadow-sm transition-all duration-200 group">
                                         <div className="w-20 h-28 rounded-xl overflow-hidden bg-[#f3ede2] shrink-0 border border-[#ebdccb]/40">
-                                            <img src={manga.image_url || manga.image} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply" />
+                                            <img src={`http:\\localhost:8000${manga.cover_image}` || manga.image} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply" />
                                         </div>
                                         <div className="flex flex-col justify-between py-1">
                                             <div>
