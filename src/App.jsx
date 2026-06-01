@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home.jsx'
 import About from './pages/About'
+import Series from './pages/Series'
 import Contact from './pages/Contact'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/series' element={<Series />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

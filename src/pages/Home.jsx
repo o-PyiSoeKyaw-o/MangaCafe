@@ -153,7 +153,7 @@ export default function MangaHomePage() {
                                 {latestUpdates.map((manga) => (
                                     <div key={manga.id} className="flex gap-4 p-3 rounded-2xl bg-white hover:bg-[#fbf9f3] border border-[#ebdccb]/60 hover:border-[#d4c1aa] shadow-sm transition-all duration-200 group">
                                         <div className="w-20 h-28 rounded-xl overflow-hidden bg-[#f3ede2] shrink-0 border border-[#ebdccb]/40">
-                                            <img src={`http:\\localhost:8000${manga.cover_image}` || manga.image} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply" />
+                                            <img src={`http://localhost:8000${manga.cover_image}`} alt={manga.title} className="w-full h-full object-cover mix-blend-multiply" />
                                         </div>
                                         <div className="flex flex-col justify-between py-1">
                                             <div>
